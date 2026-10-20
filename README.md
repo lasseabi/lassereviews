@@ -14,3 +14,10 @@ In `reviews.js` liegen die Texte. `body` ist Deutsch, `body_en` Englisch; `excer
 
 ## Vor dem professionellen Einsatz
 Ersetze in `index.html` die Platzhalter-E-Mail `DEINE-EMAIL@BEISPIEL.DE` und den IMDb-Link. Prüfe Impressum/Datenschutz nach geltendem Recht. Verwende nur Filmplakate mit passenden Nutzungsrechten.
+
+
+## Filmplakat und Trailer
+- `images/conclave-poster.jpg` ist das vom Nutzer bereitgestellte Filmplakat. Vor öffentlicher Nutzung Nutzungsrechte prüfen.
+- Der offizielle Trailer von Focus Features wird per datenschutzfreundlicher YouTube-Einbettung geladen, sobald die Kritik geöffnet wird. YouTube kann dabei Daten verarbeiten.
+- `reviews.js` enthält den englischen Rezensionstext aus der bisherigen Version unverändert. Die deutsche Version ist eine Übersetzung.
+- Beim Hochladen unbedingt auch den Ordner `images` samt Bilddatei hinzufügen.
