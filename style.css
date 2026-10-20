@@ -23,3 +23,22 @@
   object-fit: contain !important;
   object-position: center !important;
 }
+
+
+/* Filmplakat vollständig und ohne Beschnitt */
+.cards .review .poster {
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 2 / 3 !important;
+  overflow: hidden;
+}
+
+.cards .review .poster img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 2 / 3 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
