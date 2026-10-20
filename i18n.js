@@ -1,0 +1,41 @@
+const LASSE_I18N = {"de": {"nav": ["Start", "Kritiken", "Über mich", "Presse & Kontakt"], "eyebrows": ["UNABHÄNGIGE FILMKRITIK · SEIT 2026", "DAS ARCHIV", "DIE STIMME DAHINTER", "PRESSE · KOOPERATIONEN · KONTAKT"], "hero": "FILME VERDIENEN<br><em>MEHR ALS STERNE.</em>", "heroP": "Persönliche Perspektiven. Präzise Analysen. Ehrliche Urteile. Willkommen bei LasseReviews – deinem Ort für Filmkritik mit Haltung.", "cta": "KRITIKEN ENTDECKEN <span>↗</span>", "section": "Die <em>Kritiken.</em>", "sectionP": "Entdecke Analysen, Eindrücke und persönliche Bewertungen.", "about": "Mehr als nur <em>eine Meinung.</em>", "aboutP": ["Ich bin Lasse und beschäftige mich leidenschaftlich mit Filmen. Bei LasseReviews geht es nicht nur darum, ob ein Film gefällt – sondern auch darum, warum er funktioniert, welche Ideen er verfolgt und was von ihm bleibt.", "Hier veröffentliche ich unabhängige Kritiken und persönliche Einordnungen. Mein Ziel: Filme ernst nehmen, ohne den Spaß am Kino zu verlieren."], "contact": "Reden wir über <em>Kino.</em>", "contactP": "Für Presseanfragen, Screening-Einladungen und redaktionellen Austausch bin ich offen. Unabhängige Bewertungen bleiben unabhängig.", "search": "Film, Regie oder Genre suchen …", "genres": "Alle Genres", "sort": ["Neueste zuerst", "Höchste Bewertung", "Titel A–Z"], "empty": "Keine Kritiken gefunden. Versuche einen anderen Suchbegriff.", "mail": "PRESSEANFRAGE SENDEN ↗", "imdb": "IMDb-PROFIL ↗", "up": "NACH OBEN ↑", "skip": "Zum Inhalt", "scroll": "SCROLLEN ↓", "foot": "Unabhängige Filmkritik"}, "en": {"nav": ["Home", "Reviews", "About me", "Press & Contact"], "eyebrows": ["INDEPENDENT FILM CRITICISM · SINCE 2026", "THE ARCHIVE", "BEHIND THE REVIEWS", "PRESS · COLLABORATIONS · CONTACT"], "hero": "FILMS DESERVE<br><em>MORE THAN STARS.</em>", "heroP": "Personal perspectives. Thoughtful analysis. Honest opinions. Welcome to LasseReviews – independent film criticism with a point of view.", "cta": "EXPLORE REVIEWS <span>↗</span>", "section": "The <em>Reviews.</em>", "sectionP": "Explore in-depth analysis, impressions and personal ratings.", "about": "More than <em>an opinion.</em>", "aboutP": ["I’m Lasse, and I’m passionate about cinema. LasseReviews goes beyond whether a film is enjoyable to explore why it works, which ideas it pursues and what stays with us.", "Here I publish independent reviews and personal perspectives. My goal is to take film seriously without losing the joy of cinema."], "contact": "Let’s talk <em>cinema.</em>", "contactP": "I welcome press inquiries, screening invitations and editorial conversations. My reviews always remain independent.", "search": "Search film, director or genre …", "genres": "All genres", "sort": ["Newest first", "Highest rated", "Title A–Z"], "empty": "No reviews found. Try another search term.", "mail": "SEND PRESS INQUIRY ↗", "imdb": "IMDb PROFILE ↗", "up": "BACK TO TOP ↑", "skip": "Skip to content", "scroll": "SCROLL ↓", "foot": "Independent film criticism"}};
+
+window.LASSE_LANG='de';
+function setLasseLanguage(lang){
+ if(!LASSE_I18N[lang])lang='de';
+ window.LASSE_LANG=lang;
+ document.documentElement.lang=lang;
+ const t=LASSE_I18N[lang];
+ const nav=document.querySelectorAll('#nav a');nav.forEach((a,i)=>a.textContent=t.nav[i]);
+ const brows=document.querySelectorAll('.eyebrow');brows.forEach((e,i)=>{if(i<t.eyebrows.length)e.textContent=t.eyebrows[i]});
+ document.querySelector('.hero h1').innerHTML=t.hero;
+ document.querySelector('.hero>p').textContent=t.heroP;
+ document.querySelector('.hero .primary').innerHTML=t.cta;
+ document.querySelector('.hero-line span:last-child').textContent=t.scroll;
+ document.querySelector('.section-top h2').innerHTML=t.section;
+ document.querySelector('.section-top p').textContent=t.sectionP;
+ document.querySelector('.about h2').innerHTML=t.about;
+ document.querySelectorAll('.about>div:last-child>p:not(.small)').forEach((p,i)=>p.textContent=t.aboutP[i]);
+ document.querySelector('.contact h2').innerHTML=t.contact;
+ document.querySelector('.contact>p:not(.small)').textContent=t.contactP;
+ document.querySelector('#search').placeholder=t.search;
+ document.querySelector('#genre option:first-child').textContent=t.genres;
+ document.querySelectorAll('#sort option').forEach((o,i)=>o.textContent=t.sort[i]);
+ document.querySelector('#empty').textContent=t.empty;
+ document.querySelector('#mail').textContent=t.mail;
+ document.querySelector('#imdb').textContent=t.imdb;
+ document.querySelector('footer>a:last-child').textContent=t.up;
+ document.querySelector('.skip').textContent=t.skip;
+ document.querySelector('footer p').lastChild.textContent=' LasseReviews · '+t.foot;
+ document.querySelector('#lang-de').classList.toggle('active',lang==='de');
+ document.querySelector('#lang-en').classList.toggle('active',lang==='en');
+ document.querySelector('#lang-de').setAttribute('aria-pressed',String(lang==='de'));
+ document.querySelector('#lang-en').setAttribute('aria-pressed',String(lang==='en'));
+ document.title=lang==='de'?'LasseReviews — Filmkritik mit Haltung':'LasseReviews — Independent Film Reviews';
+ document.querySelector('meta[name="description"]').content=lang==='de'?'LasseReviews – unabhängige Filmkritiken, Analysen und Bewertungen.':'LasseReviews – independent film reviews, analysis and ratings.';
+ if(document.querySelector('#detail').open)document.querySelector('#detail').close();
+ window.refreshLasseReviews();
+}
+document.querySelector('#lang-de').addEventListener('click',()=>setLasseLanguage('de'));
+document.querySelector('#lang-en').addEventListener('click',()=>setLasseLanguage('en'));
+setLasseLanguage('de');
